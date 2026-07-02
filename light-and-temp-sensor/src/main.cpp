@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <BH1750.h>
 #include <LM75.h>
+#include "wifi/wifi_setup.h"
 
 LM75 tempSensor;
 BH1750 lightMeter;
@@ -10,6 +11,8 @@ void setup() {
   Serial.begin(115200);
   Wire.begin();
   
+  connectToWiFi();
+
   if (lightMeter.begin()) {
     Serial.println("Датчик BH1750 инициализирован успешно.");
   } else {
@@ -39,6 +42,8 @@ void loop() {
   Serial.print("Температура: ");
   Serial.print(temperature);
   Serial.println(" °C");
+
+  runServer(lux, temperature);
 
   delay(1000);
 }
