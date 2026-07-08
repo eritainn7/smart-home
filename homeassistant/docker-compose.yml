@@ -1,0 +1,23 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./config:/config
+      # Пробрасываем локальное время, чтобы HA показывал правильное время
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true # Нужно для USB-устройств
+    network_mode: host
+  
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome:latest
+    volumes:
+      - ./esphome:/config       
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true             # Нужен для доступа к USB-портам при прошивке
+    network_mode: host
+  
