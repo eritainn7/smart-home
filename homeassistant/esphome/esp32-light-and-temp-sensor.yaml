@@ -1,0 +1,46 @@
+# Board: Espressif ESP32 Dev Module
+# Definition: definitions/boards/esp32dev/manifest.yaml
+
+esphome:
+  name: esp32-light-and-temp-sensor
+  friendly_name: esp32-light-and-temp-sensor
+
+esp32:
+  variant: esp32
+  board: esp32dev
+  framework:
+    type: arduino
+    
+logger:
+
+api:
+  encryption:
+    key: "fpyYc+rlethTn4qWv2pAY0mo+7sCdNBdxnqad8bvXVg="
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: esp32-light-and Fallback Hotspot
+    password: "L33pp48DmgtZ"
+
+i2c:
+  sda: GPIO21   
+  scl: GPIO22
+  scan: true 
+
+sensor:
+  - platform: bh1750
+    name: "Освещённость"
+    address: 0x23
+    update_interval: 10s
+
+  - platform: lm75b
+    name: "Температура"
+    address: 0x48
+    update_interval: 10s
+  
+captive_portal:
