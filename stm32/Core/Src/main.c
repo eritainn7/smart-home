@@ -19,7 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
-
+#include "stm32f7xx_hal.h"
+#include "TM1637.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -27,7 +28,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+TM1637_HandleTypeDef htm1637;
+uint8_t DispMSG[] = {1, 2, 3, 4};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -85,19 +87,28 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  TM1637_Init(&htm1637, 
+            TM1637_CLK_GPIO_Port, TM1637_CLK_Pin,
+            TM1637_DIO_GPIO_Port, TM1637_DIO_Pin,
+            D4036B);
+    
+  // Установка максимальной яркости
+  TM1637_SetBrightness(&htm1637, BRIGHTEST);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int16_t counter = 0;
   while (1)
   {
+        TM1637_DisplayInt(&htm1637, counter--);
+        HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
