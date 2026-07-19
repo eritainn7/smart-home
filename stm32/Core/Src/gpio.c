@@ -43,24 +43,24 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CLK_GPIO_Port, CLK_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TM1637_CLK_GPIO_Port, TM1637_CLK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DIO_GPIO_Port, DIO_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(TM1637_DIO_GPIO_Port, TM1637_DIO_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pin : CLK_Pin */
-  GPIO_InitStruct.Pin = CLK_Pin;
+  /*Configure GPIO pin : TM1637_CLK_Pin */
+  GPIO_InitStruct.Pin = TM1637_CLK_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(CLK_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(TM1637_CLK_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : DIO_Pin */
-  GPIO_InitStruct.Pin = DIO_Pin;
+  /*Configure GPIO pin : TM1637_DIO_Pin */
+  GPIO_InitStruct.Pin = TM1637_DIO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(DIO_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(TM1637_DIO_GPIO_Port, &GPIO_InitStruct);
 
 }
 
