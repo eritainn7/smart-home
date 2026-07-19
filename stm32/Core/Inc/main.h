@@ -57,13 +57,11 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
 #define TM1637_CLK_Pin GPIO_PIN_5
 #define TM1637_CLK_GPIO_Port GPIOA
 #define TM1637_DIO_Pin GPIO_PIN_6
 #define TM1637_DIO_GPIO_Port GPIOA
-
-/* USER CODE BEGIN Private defines */
-
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
