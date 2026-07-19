@@ -19,11 +19,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
-#include "stm32f7xx_hal.h"
-#include "TM1637.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "TM1637.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
