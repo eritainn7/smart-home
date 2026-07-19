@@ -57,10 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define CLK_Pin GPIO_PIN_5
-#define CLK_GPIO_Port GPIOA
-#define DIO_Pin GPIO_PIN_6
-#define DIO_GPIO_Port GPIOA
+#define TM1637_CLK_Pin GPIO_PIN_5
+#define TM1637_CLK_GPIO_Port GPIOA
+#define TM1637_DIO_Pin GPIO_PIN_6
+#define TM1637_DIO_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
