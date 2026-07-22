@@ -1,0 +1,3 @@
+[submodule "lwip-stm32"]
+	path = lwip-stm32
+	url = git@github.com:eritainn7/lwip-stm32.git
