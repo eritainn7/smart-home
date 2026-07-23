@@ -1,6 +1,6 @@
 #!/bin/bash
 LAN_INTERFACE="enx34298f7155d6"   
-LAN_IP="192.168.1.1"              
+LAN_IP="192.168.1.2"              
 STM32_IP="192.168.1.24"           
 
 echo "=== Настройка сети для STM32 ==="
